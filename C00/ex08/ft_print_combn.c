@@ -24,8 +24,8 @@ void	ft_print_combn(int n)
 		i++;
 	}
 
-
-
+//tant que idx[0] n'a pas atteint sa valeur max (9 - n),
+//il reste encore des combinaisons a afficher
 
 
 
