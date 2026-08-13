@@ -1,37 +1,33 @@
 #include <unistd.h>
 
-void	afficher(int idx[9], int n)
+void	ft_write_comb(char *comb, int n)
 {
-	int	i;
+	write(1, comb, n);
+	if (comb[0] != '9' - n + 1)
+		write(1, ", ", 2);
+}
 
-	i = 0;
-	while (i < n)
+void	ft_next_comb(char *comb, int n, int pos, int min)
+{
+	int	digit;
+
+	digit = min;
+	while (digit <= 9 - (n - 1 - pos))
 	{
-		write(1, &(char){idx[i] + '0'}, 1);
-		i++;
+		comb[pos] = digit + '0';
+		if (pos == n - 1)
+			ft_write_comb(comb, n);
+		else
+			ft_next_comb(comb, n, pos + 1, digit + 1);
+		digit++;
 	}
 }
 
 void	ft_print_combn(int n)
 {
-	int	idx[9];
-	int	i;
+	char	comb[10];
 
-	i = 0;
-	while (i < n)
-	{
-		idx[i] = i;
-		i++;
-	}
-
-//tant que idx[0] n'a pas atteint sa valeur max (9 - n),
-//il reste encore des combinaisons a afficher
-
-
-
-
-
-
-
-
-
+	if (n < 1 || n > 10)
+		return ;
+	ft_next_comb(comb, n, 0, 0);
+}
