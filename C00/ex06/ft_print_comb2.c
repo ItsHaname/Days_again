@@ -1,22 +1,5 @@
 #include <unistd.h>
 
-void	ft_write_pair(int i, int j)
-{
-	char	pair[7];
-
-	pair[0] = i / 10 + '0';
-	pair[1] = i % 10 + '0';
-	pair[2] = ' ';
-	pair[3] = j / 10 + '0';
-	pair[4] = j % 10 + '0';
-	pair[5] = ',';
-	pair[6] = ' ';
-	if (i == 98)
-		write(1, pair, 5);
-	else
-		write(1, pair, 7);
-}
-
 void	ft_print_comb2(void)
 {
 	int	i;
@@ -28,9 +11,16 @@ void	ft_print_comb2(void)
 		j = i + 1;
 		while (j <= 99)
 		{
-			ft_write_pair(i, j);
+			write (1, &(char){(i / 10) + '0'}, 1);
+			write (1, &(char){(i % 10) + '0'}, 1);
+			write (1, " ", 1);
+			write (1, &(char){(j / 10) + '0'}, 1);
+			write (1, &(char){(j % 10) + '0'}, 1);
+			if (i != 98)
+				write (1, ", ", 2);
 			j++;
 		}
 		i++;
 	}
+	write (1, "\n", 1);
 }

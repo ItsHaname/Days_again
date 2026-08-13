@@ -1,20 +1,5 @@
 #include <unistd.h>
 
-void	ft_write_comb(int i, int j, int k)
-{
-	char	comb[5];
-
-	comb[0] = i + '0';
-	comb[1] = j + '0';
-	comb[2] = k + '0';
-	comb[3] = ',';
-	comb[4] = ' ';
-	if (i == 7)
-		write(1, comb, 3);
-	else
-		write(1, comb, 5);
-}
-
 void	ft_print_comb(void)
 {
 	int	i;
@@ -30,11 +15,16 @@ void	ft_print_comb(void)
 			k = j + 1;
 			while (k <= 9)
 			{
-				ft_write_comb(i, j, k);
+				write (1, &(char){i + '0'}, 1);
+				write (1, &(char){j + '0'}, 1);
+				write (1, &(char){k + '0'}, 1);
+				if (i != 7)
+					write (1, ", ", 2);
 				k++;
 			}
 			j++;
 		}
 		i++;
 	}
+	write (1, "\n", 1);
 }
