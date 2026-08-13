@@ -3,14 +3,15 @@
 void	ft_putnbr(int nb)
 {
 	unsigned int	n;
-	char	tab[12];
-	int	i;
+	char			tab[12];
+	int				i;
 
 	if (nb < 0)
 	{
-		n = (unsigned int)(-nb);
+		n = -(unsigned int)nb;
 		write (1, "-", 1);
-	}else
+	}
+	else
 		n = (unsigned int)(nb);
 	i = 0;
 	if (n == 0)
@@ -25,5 +26,5 @@ void	ft_putnbr(int nb)
 		i++;
 	}
 	while (i > 0)
-		write (1,&tab[--i], 1);
+		write (1, &tab[--i], 1);
 }
