@@ -1,15 +1,11 @@
 #include <unistd.h>
 
-void	afficher(int i, int j, int k)
+void	afficher(int n)
 {
-	char	comb[3];
+	char	c;
 
-	comb[0] = i + '0';
-	comb[1] = j + '0';
-	comb[2] = k + '0';
-	write (1, comb, 3);
-	if (i != 7)
-		write (1, ", ", 2);
+	c = n + '0';
+	write (1, &c, 1);
 }
 
 void	ft_print_comb(void)
@@ -27,7 +23,11 @@ void	ft_print_comb(void)
 			k = j + 1;
 			while (k <= 9)
 			{
-				afficher(i, j, k);
+				afficher(i);
+				afficher(j);
+				afficher(k);
+				if (i != 7)
+					write (1, ", ", 2);
 				k++;
 			}
 			j++;
