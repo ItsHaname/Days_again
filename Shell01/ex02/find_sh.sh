@@ -1,3 +1,3 @@
 #!/bin/sh
 
-find . -name '*.sh' -print | xargs basename -s .sh
+find . -name '*.sh' -exec basename {} .sh \;
