@@ -1,4 +1,14 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haait-ba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/15 22:06:19 by haait-ba          #+#    #+#             */
+/*   Updated: 2026/08/15 22:06:22 by haait-ba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	ft_ultimate_div_mod(int *a, int *b)
 {
@@ -10,17 +20,3 @@ void	ft_ultimate_div_mod(int *a, int *b)
 	*a = div;
 	*b = mod;
 }
-/*
-int main ()
-{
-	char hehe[3];
-	int a = 14;
-	int b = 2;
-	ft_ultimate_div_mod(&a,&b);
-	hehe[0] = a + '0';
-	hehe[1] = '\n';
-	hehe[2] = b + '0';
-	write (1,hehe,3);
-	return 0;
-}
-*/

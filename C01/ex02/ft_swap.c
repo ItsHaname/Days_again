@@ -1,4 +1,14 @@
-//#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haait-ba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/15 22:04:12 by haait-ba          #+#    #+#             */
+/*   Updated: 2026/08/15 22:04:51 by haait-ba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	ft_swap(int *a, int *b)
 {
@@ -8,18 +18,3 @@ void	ft_swap(int *a, int *b)
 	*a = *b;
 	*b = tmp;
 }
-/*
-int main ()
-{
-	int	a = 7;
-	int 	b = 1;
-	printf ("Before\n");
-	printf ("a = %d\n",a);
-	printf ("b = %d\n",b);
-	ft_swap(&a,&b);
-	printf("after:\n");
-	printf ("a = %d\n",a);
-	printf("b = %d\n",b);
-	return 0;
-}
-*/

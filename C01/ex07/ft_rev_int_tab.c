@@ -1,4 +1,14 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haait-ba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/15 22:08:02 by haait-ba          #+#    #+#             */
+/*   Updated: 2026/08/15 22:08:25 by haait-ba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	ft_rev_int_tab(int *tab, int size)
 {
@@ -14,18 +24,3 @@ void	ft_rev_int_tab(int *tab, int size)
 		i++;
 	}
 }
-/*
-int	main(void)
-{
-	int size = 5;
-	int tab[] = {1, 2, 3, 4, 5};
-	ft_rev_int_tab(tab,size);
-	int i = 0;
-	while (i < size)
-	{
-		write (1,&(char){tab[i] + '0'},1);
-		i++;
-	}
-	return 0;
-}
-*/
