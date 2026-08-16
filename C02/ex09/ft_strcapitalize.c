@@ -10,18 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_alnum(char c)
-{
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-char	*ft_strcapitalize(char *str)
+char	*ft_str_to_lower(char *str)
 {
 	int	i;
 
@@ -30,9 +19,24 @@ char	*ft_strcapitalize(char *str)
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')
 			str[i] = str[i] + 32;
-		if (i == 0 || !ft_is_alnum(str[i - 1]))
+		i++;
+	}
+	return (str);
+}
+
+char	*ft_strcapitalize(char *str)
+{
+	int	i;
+
+	ft_str_to_lower(str);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
 		{
-			if (str[i] >= 'a' && str[i] <= 'z')
+			if (i == 0 || !((str[i - 1] >= 'a' && str[i - 1] <= 'z')
+					|| (str[i - 1] >= 'A' && str[i - 1] <= 'Z')
+					|| (str[i - 1] >= '0' && str[i - 1] <= '9')))
 				str[i] = str[i] - 32;
 		}
 		i++;
