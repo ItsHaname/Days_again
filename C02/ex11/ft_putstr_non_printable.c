@@ -12,14 +12,15 @@
 
 #include <unistd.h>
 
-void	ft_put_hex(unsigned char c)
+void	put_hex_digit(int chiffre)
 {
-	char	*base;
+	char	c;
 
-	base = "0123456789abcdef";
-	write(1, "\\", 1);
-	write(1, &base[c / 16], 1);
-	write(1, &base[c % 16], 1);
+	if (chiffre < 10)
+		c = chiffre + '0';
+	else
+		c = chiffre - 10 + 'a';
+	write(1, &c, 1);
 }
 
 void	ft_putstr_non_printable(char *str)
@@ -32,7 +33,11 @@ void	ft_putstr_non_printable(char *str)
 		if (str[i] >= 32 && str[i] <= 126)
 			write(1, &str[i], 1);
 		else
-			ft_put_hex((unsigned char)str[i]);
+		{
+			write(1, "\\", 1);
+			put_hex_digit((unsigned char)str[i] / 16);
+			put_hex_digit((unsigned char)str[i] % 16);
+		}
 		i++;
 	}
 }

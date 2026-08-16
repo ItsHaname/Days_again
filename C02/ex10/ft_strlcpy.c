@@ -10,14 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlen(char *str)
 {
-	unsigned int	i;
 	unsigned int	len;
 
 	len = 0;
-	while (src[len])
+	while (str[len])
 		len++;
+	return (len);
+}
+
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+	unsigned int	lensrc;
+	unsigned int	i;
+
+	lensrc = ft_strlen(src);
 	i = 0;
 	if (size > 0)
 	{
@@ -28,5 +36,5 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		}
 		dest[i] = '\0';
 	}
-	return (len);
+	return (lensrc);
 }
