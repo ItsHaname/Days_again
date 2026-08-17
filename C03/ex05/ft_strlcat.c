@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haait-ba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/16 17:53:00 by haait-ba          #+#    #+#             */
+/*   Created: 2026/08/17 19:07:00 by haait-ba          #+#    #+#             */
 /*   Updated: 2026/08/17 19:30:00 by haait-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+unsigned int	ft_strlen(char *str)
+{
+	unsigned int	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
+	unsigned int	lendest;
+	unsigned int	lensrc;
 
 	i = 0;
-	while (i < n && (s1[i] || s2[i]))
+	lendest = ft_strlen(dest);
+	lensrc = ft_strlen(src);
+	if (size <= lendest)
+		return (size + lensrc);
+	while (src[i] && lendest + i < size - 1)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		dest[lendest + i] = src[i];
 		i++;
 	}
-	return (0);
+	dest[lendest + i] = '\0';
+	return (lendest + lensrc);
 }

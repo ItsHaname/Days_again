@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haait-ba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/16 17:53:00 by haait-ba          #+#    #+#             */
+/*   Created: 2026/08/16 19:02:00 by haait-ba          #+#    #+#             */
 /*   Updated: 2026/08/17 19:30:00 by haait-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strlen(char *str)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (i < n && (s1[i] || s2[i]))
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
+{
+	unsigned int	i;
+	int				lendest;
+
+	lendest = ft_strlen(dest);
+	i = 0;
+	while (src[i] && i < nb)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		dest[i + lendest] = src[i];
 		i++;
 	}
-	return (0);
+	dest[i + lendest] = '\0';
+	return (dest);
 }
