@@ -12,30 +12,35 @@
 
 #include <unistd.h>
 
-int	base_len(char *str)
+int	ft_strlen(char *str)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }
 
-int	is_valid_base(char *base)
+int	is_base_valid(char *base)
 {
 	int	i;
 	int	j;
 
-	if (base_len(base) < 2)
-		return (0);
 	i = 0;
-	while (base[i])
+	if (base[0] == '\0' || base[1] == '\0')
+		return (0);
+	while (base[i] != '\0')
 	{
 		if (base[i] == '+' || base[i] == '-')
 			return (0);
+		i++;
+	}
+	i = 0;
+	while (base[i] != '\0')
+	{
 		j = i + 1;
-		while (base[j])
+		while (base[j] != '\0')
 		{
 			if (base[i] == base[j])
 				return (0);
@@ -48,14 +53,12 @@ int	is_valid_base(char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	unsigned int	n;
-	int				len;
 	int				i;
-	char			tab[32];
+	unsigned int	n;
+	int				tab[32];
 
-	if (!is_valid_base(base))
+	if (is_base_valid(base) == 0)
 		return ;
-	len = base_len(base);
 	if (nbr < 0)
 	{
 		write(1, "-", 1);
@@ -65,12 +68,16 @@ void	ft_putnbr_base(int nbr, char *base)
 		n = (unsigned int)nbr;
 	i = 0;
 	if (n == 0)
-		tab[i++] = base[0];
+	{
+		tab[i] = 0;
+		i++;
+	}
 	while (n > 0)
 	{
-		tab[i++] = base[n % len];
-		n = n / len;
+		tab[i] = n % ft_strlen(base);
+		n = n / ft_strlen(base);
+		i++;
 	}
 	while (i > 0)
-		write(1, &tab[--i], 1);
+		write(1, &base[tab[--i]], 1);
 }
