@@ -51,6 +51,13 @@ int	is_base_valid(char *base)
 	return (1);
 }
 
+unsigned int	get_abs(int nbr)
+{
+	if (nbr < 0)
+		return (-(unsigned int)nbr);
+	return ((unsigned int)nbr);
+}
+
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int				i;
@@ -60,12 +67,8 @@ void	ft_putnbr_base(int nbr, char *base)
 	if (is_base_valid(base) == 0)
 		return ;
 	if (nbr < 0)
-	{
 		write(1, "-", 1);
-		n = -(unsigned int)nbr;
-	}
-	else
-		n = (unsigned int)nbr;
+	n = get_abs(nbr);
 	i = 0;
 	if (n == 0)
 	{
